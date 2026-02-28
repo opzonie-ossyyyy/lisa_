@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"For My Pasandeeda Mahila❤️🫂"</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);
+background-size:400% 400%;
+animation:gradient 18s ease infinite;
+color:white;
+overflow-x:hidden;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+}
+
+h1,h2{font-family:'Playfair Display',serif;}
+h1{font-size:3.3em;}
+h2{font-size:2.4em;margin-bottom:15px;}
+p{font-size:1.15em;line-height:1.9;max-width:900px;}
+
+button{
+margin-top:30px;
+padding:15px 38px;
+border:none;
+border-radius:50px;
+background:rgba(255,255,255,0.9);
+color:#333;
+font-size:1em;
+cursor:pointer;
+transition:.4s;
+}
+button:hover{transform:scale(1.06);}
+
+.glow{text-shadow:0 0 25px rgba(255,255,255,.8);}
+
+.card{
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(10px);
+border-radius:30px;
+padding:30px;
+box-shadow:0 0 40px rgba(255,255,255,.25);
+margin:20px;
+}
+
+.hidden{display:none;}
+
+/* Floating hearts */
+.heart{
+position:fixed;
+font-size:24px;
+animation:float 4s linear forwards;
+}
+@keyframes float{
+0%{transform:translateY(0) scale(1);opacity:1}
+100%{transform:translateY(-160px) scale(1.6);opacity:0}
+}
+
+/* Typing animation */
+#typing{border-right:2px solid white; padding-right:5px;}
+
+/* Music overlay */
+#musicOverlay{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(135deg,#000000bb,#000000cc);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+flex-direction:column;
+text-align:center;
+}
+
+/* Moonlight effect */
+.moon{
+position:fixed;
+top:40px;
+right:40px;
+width:140px;
+height:140px;
+border-radius:50%;
+background:radial-gradient(circle,#ffffff,#f5f5f5,#dddddd);
+opacity:0.85;
+box-shadow:0 0 60px rgba(255,255,255,0.6);
+z-index:1;
+}
+
+.moon-glow{
+position:fixed;
+top:10px;
+right:10px;
+width:220px;
+height:220px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(255,255,255,0.25),transparent 70%);
+animation:moonPulse 6s ease-in-out infinite alternate;
+z-index:0;
+}
+
+@keyframes moonPulse{
+0%{opacity:0.3;}
+100%{opacity:0.7;}
+}
+
+/* Clouds */
+.cloud{
+position:fixed;
+top:0;
+width:300px;
+height:120px;
+background:rgba(255,255,255,0.15);
+border-radius:50%;
+filter:blur(20px);
+z-index:0;
+}
+
+.cloud1{
+top:50px;
+animation:cloudMove 90s linear infinite;
+}
+
+.cloud2{
+top:200px;
+width:400px;
+height:150px;
+animation:cloudMove 120s linear infinite;
+}
+
+.cloud3{
+top:350px;
+width:350px;
+height:130px;
+animation:cloudMove 110s linear infinite;
+}
+
+@keyframes cloudMove{
+0%{left:-400px;}
+100%{left:100%;}
+}
+</style>
+</head>
+
+<body onclick="createHeart(event)">
+
+<!-- Moonlight -->
+<div class="moon"></div>
+<div class="moon-glow"></div>
+
+<!-- Clouds -->
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+
+<!-- Music -->
+<audio id="bgm" loop>
+<source src="index.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Music overlay -->
+<div id="musicOverlay">
+<h1 class="glow">For My Pasandeeda Mahila❤️🫂</h1>
+<p style="margin-top:15px">Tap to start reading…</p>
+<button onclick="startExperience()">Let'Start Reading</button>
+</div>
+
+<!-- Home -->
+<section id="home" class="hidden">
+<h1 class="glow">For My Pasandeeda Mahila❤️🫂</h1>
+<p>You're loved, valued, and cherished.</p>
+<button onclick="next('intro')">Enter</button>
+</section>
+
+<!-- Intro -->
+<section id="intro" class="hidden">
+<h2>For You</h2>
+<div class="card">
+<p>
+Don't be too hard on yourself, okay? 
+You show up for people, you care deeply,
+and that's something to be proud of.
+</p>
+</div>
+<button onclick="next('Cuto')">My Cuto →</button>
+</section>
+
+<!-- Letter -->
+<section id="Cuto" class="hidden">
+<h2>A Letter Written Slowly</h2>
+<div class="card">
+<p id="typing"></p>
+</div>
+<button onclick="next('Pyaru')">For You, Pyaru →</button>
+</section>
+
+<!-- Pyaru Romantic Section -->
+<section id="Pyaru" class="hidden">
+<h2>For My Noor 🤍</h2>
+<div class="card">
+<p>
+Lisa…<br><br>
+You're one of the brightest lights in my life,
+ and I don't say it enough.  
+<br><br>
+ Your kindness, love, 
+ and compassion inspire me every day. 
+<br><br>
+Your heart is full of love and kindness,
+ and that's what truly matters. 💗  
+<br><br>
+Don't ever blame yourself for anything bad.
+</p>
+</div>
+<button onclick="next('dua')">A Prayer For You →</button>
+</section>
+
+<!-- Duas -->
+<section id="dua" class="hidden">
+<h2>میرے دل کی دعا 🤍</h2>
+<div class="card">
+<p>
+Ya Allah,
+<br><br>
+Ya Allah, ease Noor's difficulties and grant her relief from her struggles. 
+Fulfill her wish to visit Your sacred house in Makkah
+ and grant her a smooth and accepted Umrah. Ameen 🌟
+<br><br>
+Don't let self-doubt cloud your mind.
+ You're doing your best, 
+ and that's all anyone can ask for. 
+<br><br>
+آمین 🤍
+</p>
+</div>
+<button onclick="next('appreciation')">Something From My Heart →</button>
+</section>
+
+<!-- Appreciation -->
+<section id="appreciation" class="hidden">
+<h2>Just You 🤍</h2>
+<div class="card">
+<p>
+Your worth isn't defined by one mistake or a few setbacks.
+ You're so much more than that.
+
+<br><br>
+Noor, you're a beautiful soul with a heart of gold. 
+Don't let anyone, including yourself, tell you otherwise.  
+<br><br>
+The way you exist…  
+the way you carry yourself…  
+the way you simply are —  
+<br><br>
+It all feels quietly perfect.
+<br><br>
+Cuto Aurat 🤍
+</p>
+</div>
+<button onclick="next('password')">One Last Secret →</button>
+</section>
+
+<!-- Password -->
+<section id="password" class="hidden">
+<h2>Only For You 🔐</h2>
+<div class="card">
+<p>Enter what connects our hearts.</p>
+<input id="pass" placeholder="our secret...">
+<br>
+<button onclick="unlock()">Unlock</button>
+</div>
+</section>
+
+<!-- Secret -->
+<section id="secret" class="hidden">
+<h2>My Pookie Lady🤍</h2>
+<div class="card">
+<p>
+You are rare.  
+You are precious.  
+You are deeply cherished. 
+You are the one I never want to lose.
+Mjhy itna express nai krna ata but,yk what ILYSM ❤️🫂
+<br><br>
+And in ways you may never fully see —  
+you are truly special to me 🤍
+</p>
+</div>
+<button onclick="next('final')">LAST →</button>
+</section>
+
+<!-- Final -->
+<section id="final" class="hidden">
+<h1 class="glow"> Jana 🤍</h1>
+<p>
+Your kindness is contagious, and I'm grateful to be around you.
+
+You're one of the sweetest people I've met 
+<br><br>
+Maybe that’s why your existence feels so rare.  
+<br><br>
+May your life be gentle.  
+May your heart stay peaceful.  
+May happiness always find you.  
+<br><br>
+Always 🤍Ameen
+</p>
+</section>
+
+<script>
+function startExperience(){
+document.getElementById("musicOverlay").style.display="none";
+document.getElementById("bgm").play();
+next("home");
+}
+
+function next(id){
+document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+let text=`LISA...
+
+Some people enter our lives quietly,
+yet change everything.
+
+Lisa,your kindness and love leave a mark on my heart.
+ Grateful to have you as my best friend – you're one of a kind.
+  Our laughter and bonding, and I cherish those crazy, fun moments we share. 
+  May Allah ease your pain and grant you peace and happiness ❤️🫂`;
+
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,45);
+}
+}
+type();
+
+function createHeart(e){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💗";
+heart.style.left=e.clientX+"px";
+heart.style.top=e.clientY+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),4000);
+}
+
+function unlock(){
+let p=document.getElementById("pass").value.toLowerCase();
+if(p==="genda"||p==="canda"||p==="love"){
+next("secret");
+}else{
+alert("Lisaa 😔 Try again.");
+}
+}
+</script>
+
+</body>
+</html>
